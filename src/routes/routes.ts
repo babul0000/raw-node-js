@@ -5,17 +5,11 @@ const routeHandler = (req: IncomingMessage, res:ServerResponse) => {
 const url = req.url
     const method = req.method
     if (url === "/" && method === "GET") {
-        console.log("this is route route");
-        res.writeHead(200, {"content-type": "application/json"});
-        res.end(JSON.stringify({
-            data:("hello world"),
-            meggage: ("bangladesh")
-        }))
-
+   controller(req, res)
     }else if(url?.startsWith("/product")){
        controller(req, res)
     } else {
-        console.log("this invalid route");
+        // console.log("this invalid route");
         res.writeHead(200, {"content-type": "application/json"});
         res.end(JSON.stringify({
             log: ("invalid your route")
