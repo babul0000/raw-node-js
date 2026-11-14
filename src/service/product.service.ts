@@ -1,5 +1,6 @@
 import fs from "fs"
 import path from "node:path";
+import type { IProduct } from "../types/product";
 
 const filePath = path.join(process.cwd(), "./src/database/db.json")
  export const productService = () => {
@@ -12,3 +13,6 @@ return JSON.parse(result);
 }
 // console.log(filePath);
 
+export const createProduct = (payload: IProduct[]) => {
+fs.writeFileSync(filePath, JSON.stringify(payload))
+}
